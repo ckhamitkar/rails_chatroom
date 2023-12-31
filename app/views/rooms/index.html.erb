@@ -1,0 +1,35 @@
+<div id="user-id" current_user_id="<%= current_user.id %>" hidden></div>
+<div id="room-id" current_room_id="<%= @room.try(:id) %>" hidden></div>
+<div class="container">
+<div class="row">
+    <div class="col-3" >
+    <p> Hello, <b> <%= current_user.username %> </b></p>
+    <%= render 'form', room: Room.new %>
+    <hr>
+    <% @rooms.each do |room| %>
+        <%= link_to room do %>
+        <div class="card text-dark <%= 'bg-success text-white' if @room == room %>">
+            <div class="card-body">
+            <b><%= room.name %></b>
+            </div>
+        </div>
+        <% end %>
+    <% end %>
+    </div>
+    <div class="col-9 bg-light">
+    <% if @room.present? %>       
+        <h1 class="text-center"><%= @room.name %></h1><hr/>
+        <div class="message-div overflow-auto" id="messages">
+        <% @room.messages.each do |message| %>
+            <%= render 'messages/message', message: message, current_user: current_user %>                            
+        <%end%>  
+        </div>      
+
+        <div class="new-message-div">
+        <%= render 'messages/form', message: Message.new, room: @room %>
+        </div>
+        
+    <% end %>
+    </div>
+</div>
+</div>

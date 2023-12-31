@@ -1,0 +1,5 @@
+In this project, we’ll build a real-time chat app in Ruby on Rails using ActionCable. ActionCable is a real-time WebSocket framework built into Ruby on Rails. It allows for bi-directional communication between the server and client in real time, making it ideal for applications that require live updates, such as chat applications, online games, and streaming services.
+
+The application will allow users to create rooms and chat with different users in real time. We’ll also build multiple other features, including channels for organizing WebSocket functionality, automatic subscription management, and message broadcasting to multiple clients.
+
+We’ll use Bootstrap for styling the front end and play around with multiple MVC components to configure our application. We’ll also use the Redis server to manage user sessions in the application and allow clients to publish messages to the channels.

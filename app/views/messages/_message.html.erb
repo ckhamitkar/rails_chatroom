@@ -1,0 +1,18 @@
+<div class="content">
+<% if message.user == current_user %>
+    <div class="message message-me bg-success text-white p-1 rounded-pill d-inline-block float-end">
+    <p class="m-1"><%= message.content %></p>
+    </div>
+    <br/>
+    <br/>
+    <p class="mt-1 blockquote-footer float-end">Sent by me</p>
+    <br/>
+    <br/>
+    
+<% else %>
+    <div class="message message-other bg-secondary text-white p-1 rounded-pill d-inline-block">
+        <p class="m-1"><%= message.content %></p>
+    </div>
+    <p class="mt-1 blockquote-footer">Sent by <%= message.user.username %></p>
+<% end %>
+</div> 
